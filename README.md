@@ -19,7 +19,7 @@ sudo apt-get install libjpeg-dev
 Install   
 
 git clone https://github.com/nopnop2002/mgrx_rpi   
-cd $HOME\mgrx100_rpi/   
+cd $HOME\mgrx_rpi/   
 make -f makefile.lnx libs   
 sudo make -f makefile.lnx install   
 make -f makefile.lnx   
@@ -40,7 +40,7 @@ If you have 320x240 TFT, it'll be as follows.
 
 export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
 export FRAMEBUFFER=/dev/fb1   
-cd $HOME/mgrx100_rpi/test   
+cd $HOME/mgrx_rpi/test   
 ./demomgrx   
 
 ---
