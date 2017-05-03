@@ -21,10 +21,10 @@ sudo apt-get install libjpeg-dev
 Install   
 
 git clone https://github.com/nopnop2002/mgrx_rpi   
-cd $HOME\mgrx_rpi/   
+cd $HOME/mgrx_rpi/   
 make -f makefile.lnx libs   
 sudo make -f makefile.lnx install   
-make -f makefile.lnx   
+make -f makefile.lnx test   
 
 ---
 
@@ -33,8 +33,9 @@ Demonstration
 export MGRXDRV="linuxfb gw &lt;width&gt; gh &lt;height&gt; nc &lt;colors&gt;"   
 &lt;width&gt; is width of FrameBuffer.   
 &lt;height&gt; is height of FrameBuffer.   
+Values for nc can be 2, 16, 256, 64K or 16M.   
 You can get these by the following command.   
-fbset -i -fb &lt;device of framebuffer&gt;   .
+fbset -i -fb &lt;device of framebuffer&gt;   
 
 export FRAMEBUFFER=&lt;device of framebuffer&gt;   
 If you have 320x240 TFT module like ILI9341, it'll be as follows.   
@@ -45,6 +46,8 @@ cd $HOME/mgrx_rpi/test
 ./demomgrx   
 
 ---
+
+When the item is chosen by an arrow key and ENTER is pushed, demonstration starts.   
 
 ![main1](https://cloud.githubusercontent.com/assets/6020549/25653417/bc13458c-3027-11e7-8e14-ae6e85f6aec9.png)
 
