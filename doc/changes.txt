@@ -1,0 +1,172 @@
+2009-01-29 ----------- mGRX 1.0.0 released
+2009-01-25 Simplified the WM_PAINT proccess to solve a race condition
+           found in Vista running in multiple core cpu's.
+2008-11-19 Fixed a bug in GrMouseWarp win32 version, the cursor was set to the
+           screen, instead to the client area, by Richard Sanders.
+2008-11-05 Added GrClearContextC function, by Richard Sanders.
+2008-09-07 New MGRXBIGG environment variable, it lets the user to limit the
+           dimensions of GR_biggest_graphics mode. MGRXBIGG="maxw maxh"
+2008-09-06 Deleted some graphicsmodes not used anymore: GR_80_25_text,
+           GR_width_height_text, GR_biggest_text, GR_width_height_color_text,
+           GR_width_height_bpp_text and GR_biggest_noninterlaced_graphics
+2008-09-02 vdrivers/vd_win32.c: Added Mario Zagar fix for the app termination bug.
+2008-08-01 fdrivers/fd_xwin.c: Sanitized pixel cache code.
+2008-08-01 fdrivers/fd_xwin.c: New faster and specific for X11 putscanline function,
+           this change accelerates a lot displaying pnm, png and jpeg images.
+2008-02-03 ----------- mGRX 0.9.9 released
+2008-02-03 Changed defaults in makedefs.grx:
+           HAVE_LIBJPEG=y  HAVE_LIBPNG=y  NEED_ZLIB=y
+2008-02-03 Make the w32 driver generates button4 and button5 mouse events
+           (the scroll whell).
+2008-02-02 Planned intl support (and 8, finished by now)
+           Updated the programmer manual with the intl and GR_UTF8_TEXT support,
+2008-01-30 Make textpatt.c demo program works in real color modes.
+2008-01-26 Planned intl support (7)
+           The functions: GrDrawString, GrPatternDrawString, GrPatternDrawStringExt,
+           GrUsrDrawString, GrFontStringWidth, GrFontStringHeight,
+           GrProportionalTextWidth, GrStringWidth, GrStringHeight, GrStringSize
+           support the new GR_UTF8_TEXT text type, "len" must be the UTF8len or less.
+           The functions: GrCharWidth, GrCharHeight, GrCharSize, GrDrawChar,
+           GrPatternDrawChar, GrUsrDrawChar
+           support the new GR_UTF8_TEXT text type too. "chr" must be a unique char,
+           utf-8 encoded, but packed in a long (an union: long and char[4]), like it
+           is packed int the GREV_KEY event.
+           Some utility functions for UTF-8 are provided:
+           int GrUTF8StrLen(unsigned char *s)
+           long GrUCS2ToUTF8(unsigned short ch)
+           unsigned short GrUTF8ToUCS2(unsigned char *s)
+           unsigned short *GrUTF8StrToUCS2Str(unsigned char *s, int *ulen)
+2008-01-23 Warnings fixed in fonts/fdv_bgi.c
+2008-01-21 Planned intl support (6)
+           Added intl support to the dj2 input driver (input/grev_dj2.c). It try
+           to use the MGRXKBSYSENCODING environment variable. If not it sets
+           GRENC_CP437.
+           Added intl support to the w32 input driver (input/grev_w32.c). It try
+           to use the MGRXKBSYSENCODING environment variable. If not it sets
+           GRENC_CP1252.
+           Some warnings fixed.
+2008-01-20 Planned intl support (5)
+           If kbsysencoding == GRENC_UTF_8, sets initial kbencoding
+           to GRENC_ISO_8859_1, because is easier to handle.
+           New input/auxintl.c with auxiliary intl functions
+           Added intl support to the lnx input driver (input/grev_lnx.c). If the
+           LANG environment variable contain "UTF-8" sets the KbSysEncoding
+           to GRENC_UTF_8. If not it try to use the MGRXKBSYSENCODING
+           environment variable. If not it sets GRENC_ISO_8859_1.
+2008-01-19 Planned intl support (4)
+           New input/recode.c recode between supported encodings.
+           Added intl support to grevent.c, it process GREV_PREKEY events and
+           recode if necesary.
+           New test/demointl test program.
+2008-01-14 Planned intl support (3)
+           Added intl support to the x11 input driver (input/grev_x11.c). It try
+           to open a XIM (X input method) and create a XIC (X input context), if
+           it has succes, it uses Xutf8LookupString and sets the KbSysEncoding
+           to GRENC_UTF_8. If it can't, uses the XLookupString and sets
+           KbSysEncoding to GRENC_ISO_8859_1, but this function can't compose
+           accented chars.
+2008-01-12 Planned intl support (2)
+           Changes in input/ninput.h to declare "int _GrGetKbSysEncoding(void)",
+           internal funtion to be provided in the input drivers and the
+           GrRecode function to be written.
+           Added GREV_PREKEY event to mgrx.h. Input drivers with intl support
+           send this ivent instead GREV_KEY, so "grevent.c" can recode it.
+           Added "GrGetKbSysEncoding", "GrGetKbEncoding" and "GrSetKbEncoding"
+           to input/grevent.c, do void GREV_PREKEY preprocess (to be worked
+           later).
+2008-01-11 Planned intl support (1)
+           Changes in mgrx.h and general plan:
+           - Defined the initial supported input encodings:
+             #define GRENC_PC437          0   /* standard DOS encoding */
+             #define GRENC_PC850          1   /* latin1 DOS encoding */
+             #define GRENC_PC1252         2   /* standard Win encoding */
+             #define GRENC_ISO_8859_1     3   /* standard in some Linux */
+             #define GRENC_UTF_8          4   /* multibyte unicode, standard in newest Linux */
+             #define GRENC_UCS_2          5   /* restricted unicode, 2 bytes, only BMP range */
+           - The input driver must guess the system encoding and set an internal
+             var. If unsure, the input driver will use the MGRXKBSYSENCODING
+             environment variable.
+           - The function "int GrGetKbSysEncoding(void)" returns the system
+             encoding.
+           - By default the input driver uses the system encoding in returned
+             GREV_KEY events. Because now char con be a word (2 bytes) for
+             UCS-2 encoding, or multibyte (limited to 4 in MGRX) for UTF-8,we
+             need differ chars from special keycodes. So p2 is used to mark
+             a special key with GRKEY_KEYCODE or to notify the number of bytes
+             used in p1 for a char (1 to 4). The new cp1 char[4] menber event
+             is a union with p1 to facilitate the use of UTF-8 returned chars.
+           - The programmer can ask the input driver to recode the char to other
+             of the supported encodings, before the event is returned with the
+             new function "int GrSetKbEncoding(int enc)", so portable programs
+             can be made for the four supported plattforms. It returns "1" if
+             ok, or "0" else.
+           - The function "int GrGetKbEncoding(void)" returns the actual encoding
+             in use for the input driver.
+           - A new character type "GR_UTF8_TEXT" is defined for use in the text
+             drawing functions, but is to the programmer to use a font wiht the
+             same encoding that the text to be drawn (by example a ISO-8859-1
+             font is ok for UTF-8 text).
+2008-01-10 Changes in test/fontdemo.c to add some info
+2008-01-04 Optimizations to png2ctx.c, by Josu Onaindia.
+2008-01-03 Some changes in test/keys.c to work in graphic mode
+2008-01-02 Added button4 and button5 mouse events (the scroll whell), only
+           the x11 version works by now.
+2008-01-02 Moved the 1msec delay in GrEventRead to x11 and lnx versions of
+           _GrReadInputs, because dj2 and w32 doesn't need it.
+2008-01-02 Some changes in test/polytest.c to show a bug (to be worked).
+2007-12-27 ----------- mGRX 0.9.8 released
+2007-12-27 Added GrFloodSpill functions, by richard at dogcreek.ca
+2007-12-01 vd_xwin: go to fullscreen if w,h == X resolution,
+           GR_biggest_graphics is honored.
+2007-12-01 vd_xwin: modes higher than X resolution are made no-present.
+2007-12-01 Added videomodes for wide monitors in x11 and w32 drivers.
+2007-12-01 Introduction of GR_PtrInt (integer of same length as a pointer)
+           to suppress warnings (in fact errors) when compiling with
+           x86_64 platforms. Backport from GRX 2.4.7 (M.Lombardi).
+2007-11-07 Simplify the include/arith.h code.
+2007-06-09 ----------- mGRX 0.9.7 released
+2007-06-03 The djgpp delay function doesn't work on WinXP and W2000. It is
+           corrected in the djgpp CVS version. We included the source for the
+           new delay in src/misc. When a new djgpp version will be released
+           this source code will be removed.
+2007-06-01 The X11 driver now uses a pixmap for backin store and responds to
+           Expose events. But it is a bit slowly. If you want a faster driver
+           edit src/include/libxwin.h and set USE_PIXMAP_FOR_BS to 0.
+2007-06-01 GrEventRead now waits 1 msec if no event is ready, so now MGRX
+           programs doesn't load the cpu 100%.
+2007-06-01 GrSleep calls XFlush in the X11 platform, to flush the graphics
+           queue before wait.
+2007-05-13 new version of test/speedtst.c more accurate
+2007-04-30 ----------- mGRX 0.9.6 released
+2007-04-30 After a security update in xorg 7.2, bitblt ram to video doesn't
+           work in the x11 driver. We had a bug in the framedriver.
+2007-04-24 ----------- mGRX 0.9.5 released
+2007-04-21 Renamed sincos by gr_sincos in genellip.c, it's an internal function
+           in gcc.4.1.2
+2007-04-21 Changed CLK_TCK by sysconf(_SC_CLK_TCK), it's obsolete in gcc 4.1.2,
+           reported by Bjorn Gustafsson
+2006-05-15 Bug fixed in GrEventAddHook
+2006-02-17 ----------- mGRX 0.9.4 released
+2006-02-10 Better understanding of x86_64. Now by default an i386
+           library is built even on x86_64 platforms. If you set
+           BUILD_X86_64 to 'y' in makdefs.grx a x86_64 library is
+           built, and the install target go to the lib64 subdir
+2006-02-09 Some clean-up in mgrx.h, libgrx.h, etc
+2006-02-05 ----------- mGRX 0.9.3 released
+2006-01-30 Updated the porgrammer's manual from the GRX user's manual
+2005-01-20 Changed GRX20DRV to MGRXDRV and GRXFONT to MGRXFONT
+2005-01-20 Changed main include file from grxkeys.h to mgrxkeys.h
+2005-01-20 Removed old Dos video drivers (herc, ati, etc)
+2004-12-25 New input interface in place
+2004-10-04 Removed far and near keywords
+2004-10-04 Changed main include file from grx20.h to mgrx.h
+2004-09-24 Added x86_64 support
+2004-09-24 Removed addons (bmp, tiff and printing code)
+2004-09-24 Removed svgalib support
+2004-09-24 Removed LEFTSIDE CAST constructions
+2004-09-24 Removed configure script
+2004-09-24 Removed WATCOM support
+2004-09-24 Removed Borland-C support
+2004-09-24 Removed Pascal support
+2004-09-24 Removed BCCBGI code
+2004-09-24 Derived mGRX from GRX 2.4.7 p1
