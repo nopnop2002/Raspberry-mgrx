@@ -46,6 +46,11 @@ cd $HOME/mgrx_rpi/test
 ./demomgrx   
 
 ---
+Programmer's manual   
+
+<http://www.fgrim.com/mgrx/mgrx10pm.htm>   
+
+---
 
 When the item is chosen by an arrow key and ENTER is pushed, demonstration starts.   
 
