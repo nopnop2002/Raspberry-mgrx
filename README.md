@@ -46,11 +46,6 @@ cd $HOME/mgrx_rpi/test
 ./demomgrx   
 
 ---
-Programmer's manual   
-
-<http://www.fgrim.com/mgrx/mgrx10pm.htm>   
-
----
 
 When the item is chosen by an arrow key and ENTER is pushed, demonstration starts.   
 
@@ -60,3 +55,8 @@ When the item is chosen by an arrow key and ENTER is pushed, demonstration start
 
 ![main3](https://cloud.githubusercontent.com/assets/6020549/25655353/8bb1c604-302f-11e7-8177-bc02b774a55d.png)
 
+---
+
+Programmer's manual   
+
+<http://www.fgrim.com/mgrx/mgrx10pm.htm>   
