@@ -49,8 +49,9 @@ cd $HOME/mgrx_rpi/test
 
 When the item is chosen by an arrow key and ENTER is pushed, demonstration starts.   
 
-![main1](https://cloud.githubusercontent.com/assets/6020549/25653417/bc13458c-3027-11e7-8e14-ae6e85f6aec9.png)
+![main1](https://cloud.githubusercontent.com/assets/6020549/25655340/834fa7b0-302f-11e7-943b-1d80b255a9d3.png)
 
-![main2](https://cloud.githubusercontent.com/assets/6020549/25653428/c586d4b2-3027-11e7-9a33-25eb3977a0a3.png)
+![main2](https://cloud.githubusercontent.com/assets/6020549/25655348/8861486c-302f-11e7-87bd-e32a518ed616.png)
 
-![main3](https://cloud.githubusercontent.com/assets/6020549/25653434/cef6b8d2-3027-11e7-976b-4a21a44fc475.png)
+![main3](https://cloud.githubusercontent.com/assets/6020549/25655353/8bb1c604-302f-11e7-8177-bc02b774a55d.png)
+
