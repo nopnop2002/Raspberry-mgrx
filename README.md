@@ -7,13 +7,16 @@ GRX was originaly written by Csaba Biegl.
 MGRX was originaly written by M.Alvarez.   
 <http://www.fgrim.com/mgrx/>   
 
-This was transplanted for RaspberryPi.   
+This was transplanted for RaspberryPi & OrangePi.   
+I tested by the following environment.   
+Raspberry Pi + ILI9341 SPI TFT.    
+OrangePi PC + ILI9325 Parallel TFT.   
 
 ---
 
 Requirements   
 
-sudo apt-get install libjpeg-dev
+sudo apt-get install libjpeg-dev libpng-dev
 
 ---
 
