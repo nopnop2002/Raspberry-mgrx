@@ -30,15 +30,14 @@ make -f makefile.lnx
 
 Demonstration   
 
-export MGRXDRV="linuxfb gw &gt;width&lt; gh &gt;height&lt; nc &gt;colors&lt;"   
-&gt;width&lt; is width of FrameBuffer.   
-&gt;height&lt; is height of FrameBuffer.   
+export MGRXDRV="linuxfb gw &lt;width&gt; gh &lt;height&gt; nc &lt;colors&gt;"   
+&lt;width&gt; is width of FrameBuffer.   
+&lt;height&gt; is height of FrameBuffer.   
 You can get these by the following command.   
-fbset -i -fb &gt;device of framebuffer&lt;   .
+fbset -i -fb &lt;device of framebuffer&gt;   .
 
-export FRAMEBUFFER=&gt;device of framebuffer&lt;   
-S
-If you have 320x240 TFT, it'll be as follows.   
+export FRAMEBUFFER=&lt;device of framebuffer&gt;   
+If you have 320x240 TFT module like ILI9341, it'll be as follows.   
 
 export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
 export FRAMEBUFFER=/dev/fb1   
