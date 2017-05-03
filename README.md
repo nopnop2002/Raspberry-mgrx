@@ -43,3 +43,10 @@ export FRAMEBUFFER=/dev/fb1
 cd $HOME/mgrx100_rpi/test   
 ./demomgrx   
 
+---
+
+![main1](https://cloud.githubusercontent.com/assets/6020549/25653417/bc13458c-3027-11e7-8e14-ae6e85f6aec9.png)
+
+![main2](https://cloud.githubusercontent.com/assets/6020549/25653428/c586d4b2-3027-11e7-9a33-25eb3977a0a3.png)
+
+![main3](https://cloud.githubusercontent.com/assets/6020549/25653434/cef6b8d2-3027-11e7-976b-4a21a44fc475.png)
