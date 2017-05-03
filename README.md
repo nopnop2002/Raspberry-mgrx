@@ -3,9 +3,11 @@
 
 MGRX is a 2D graphics library derived from the GRX library.   
 GRX was originaly written by Csaba Biegl.   
+<http://grx.gnu.de/>   
 MGRX was originaly written by M.Alvarez.   
+<http://www.fgrim.com/mgrx/>   
 
-This is for RaspberryPi.   
+This was transplanted for RaspberryPi.   
 
 ---
 
@@ -28,14 +30,14 @@ make -f makefile.lnx
 
 Demonstration   
 
-export MGRXDRV="linuxfb gw <width> gh <height> nc <colors>"   
-<width> is width of FrameBuffer.   
-<height> is height of FrameBuffer.   
+export MGRXDRV="linuxfb gw &gt;width&lt; gh &gt;height&lt; nc &gt;colors&lt;"   
+&gt;width&lt; is width of FrameBuffer.   
+&gt;height&lt; is height of FrameBuffer.   
 You can get these by the following command.   
-fbset -i -fb <device of framebuffer>   .
+fbset -i -fb &gt;device of framebuffer&lt;   .
 
-export FRAMEBUFFER=<device of framebuffer>   
-
+export FRAMEBUFFER=&gt;device of framebuffer&lt;   
+S
 If you have 320x240 TFT, it'll be as follows.   
 
 export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
