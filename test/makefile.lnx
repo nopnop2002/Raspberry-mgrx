@@ -50,6 +50,7 @@ PROGS=	arctest     \
 	colorops    \
 	curstest    \
 	fontdemo    \
+	fontdemo2   \
 	fonttest    \
 	imgtest     \
 	jpgtest     \

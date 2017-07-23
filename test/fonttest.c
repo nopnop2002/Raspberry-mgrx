@@ -54,6 +54,9 @@ void displayfont(GrFont *font,char *text,int len)
 	bh = ww;
 	bx = cx - bw/2;
 	by = cy - bh/2;
+
+//printf("bx=%d by=%d ww=%d hh=%d\n",bx,by,ww,hh);
+
 	GrDrawString(text,len,bx+hh,by,&opt);
 	opt.txo_direct    = GR_TEXT_DOWN;
 	opt.txo_bgcolor.v = c2;
@@ -117,65 +120,65 @@ TESTFUNC(fonttest)
 	    buff,
 	    strlen(buff)
 	);
-	strcpy(buff,"Default font scaled to 12x24");
-	displayfont(
-	    GrBuildConvertedFont(
-		&GrDefaultFont,
-		(GR_FONTCVT_SKIPCHARS | GR_FONTCVT_RESIZE),
-		12,
-		24,
-		' ',
-		'z'
-	    ),
-	    buff,
-	    strlen(buff)
-	);
-	strcpy(buff,"Default font scaled to 18x36");
-	displayfont(
-	    GrBuildConvertedFont(
-		&GrDefaultFont,
-		(GR_FONTCVT_SKIPCHARS | GR_FONTCVT_RESIZE),
-		18,
-		36,
-		' ',
-		'z'
-	    ),
-	    buff,
-	    strlen(buff)
-	);
-	strcpy(buff,"Default font scaled to 10x20 proportional");
+	strcpy(buff,"Default font scaled to 6x10 proportional");
 	displayfont(
 	    GrBuildConvertedFont(
 		&GrDefaultFont,
 		(GR_FONTCVT_SKIPCHARS | GR_FONTCVT_RESIZE | GR_FONTCVT_PROPORTION),
+		6,
 		10,
-		20,
 		' ',
 		'z'
 	    ),
 	    buff,
 	    strlen(buff)
 	);
-	strcpy(buff,"Default font scaled to 10x20 bold");
+	strcpy(buff,"Default font scaled to 6x10 bold");
 	displayfont(
 	    GrBuildConvertedFont(
 		&GrDefaultFont,
 		(GR_FONTCVT_SKIPCHARS | GR_FONTCVT_RESIZE | GR_FONTCVT_BOLDIFY),
+		6,
 		10,
-		20,
 		' ',
 		'z'
 	    ),
 	    buff,
 	    strlen(buff)
 	);
-	strcpy(buff,"Default font scaled to 10x20 italic");
+	strcpy(buff,"Default font scaled to 6x10 italic");
 	displayfont(
 	    GrBuildConvertedFont(
 		&GrDefaultFont,
 		(GR_FONTCVT_SKIPCHARS | GR_FONTCVT_RESIZE | GR_FONTCVT_ITALICIZE),
+		6,
 		10,
-		20,
+		' ',
+		'z'
+	    ),
+	    buff,
+	    strlen(buff)
+	);
+	strcpy(buff,"Default font scaled to 7x12");
+	displayfont(
+	    GrBuildConvertedFont(
+		&GrDefaultFont,
+		(GR_FONTCVT_SKIPCHARS | GR_FONTCVT_RESIZE),
+		7,
+		12,
+		' ',
+		'z'
+	    ),
+	    buff,
+	    strlen(buff)
+	);
+	strcpy(buff,"Default font scaled to 8x14");
+	displayfont(
+	    GrBuildConvertedFont(
+		&GrDefaultFont,
+		(GR_FONTCVT_SKIPCHARS | GR_FONTCVT_RESIZE),
+		8,
+		14,
 		' ',
 		'z'
 	    ),

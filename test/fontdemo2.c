@@ -81,7 +81,6 @@ int main(int argc, char **argv)
 	GrFontHeader *hdr;
 	char buffer[210];
 	GrEvent ev;
-	int key;
 
 //printf("argc=%d\n",argc);
 //for(i=0;i<argc;i++) printf("argv[%d]=%s\n",i,argv[i]);
@@ -172,6 +171,13 @@ int main(int argc, char **argv)
 	opt.txo_xalign = GR_ALIGN_LEFT;
 	opt.txo_yalign = GR_ALIGN_TOP;
 
+        GrBox(2,
+            2,
+            GrSizeX() - 1,
+            GrSizeY() - 1,
+            GrAllocColor(250,255,255)
+        );
+
 	sprintf(buffer, "Font name:%s %dx%d", hdr->name, GrCharWidth('A', &opt), GrCharHeight('A', &opt));
         if (hdr->proportional)
 	    strcat(buffer, " proportional");
@@ -186,58 +192,9 @@ int main(int argc, char **argv)
 	gputs(buffer);
 	gnewl();
 
-	gputs("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG");
-	gputs("the quick brown fox jumps over the lazy dog");
-	gnewl();
-
-//	if(hdr->minchar <= 0xC0 && hdr->minchar + hdr->numchars >= 0x100) {
-//	    gputs("������� ��� ���� ���� ��");
-//	    gputs("������� ��� ���� ���� ��");
-//	    gnewl();
-//	}
-
-#if 0
-	/* ascii table, or to be precise, a full table of the current font */
-	opt.txo_chrtype = GR_WORD_TEXT;
-	for(c = 0; c < hdr->numchars; c++) {
-	    gputc(hdr->minchar + c);
-	    if(c % 0x20 == 0x1F) gnewl();
-	}
-	gnewl();
-	if(c % 0x20 != 0) gnewl();
-	opt.txo_chrtype = GR_BYTE_TEXT;
-
-	while(i < argc) {
-	    name = argv[i++];
-	    if((f = fopen(name, "r")) == NULL) {
-		perror(name);
-		return(1);
-	    }
-	    while((c = getc(f)) != EOF) if(c != '\n') gputc(c); else gnewl();
-	    if(ferror(f) != 0 || fclose(f) != 0) {
-		perror(name);
-		return(1);
-	    }
-	}
-#endif
-
-	/* enter and esc are < 0x100 and displayed 1:1 */
-	gputs("F6-new line  F7-toggle reverse  F8-toggle underline  F10-exit");
-	gnewl();
 
 	GrEventInit();
-	while(1) {
-	    GrEventWait(&ev);
-	    if(ev.type == GREV_KEY) {
-		key = ev.p1;
-//printf("key=%x\n",key);
-		if( key == GrKey_F10) break;
-		if(key == GrKey_F6) gnewl();
-		else if(key == GrKey_F7) revert();
-		else if(key == GrKey_F8) opt.txo_fgcolor.v ^= GR_UNDERLINE_TEXT;
-		else if(key < 0x100) gputc(key);
-	    }
-	}
+	GrEventWait(&ev);
 	GrEventUnInit();
 
 	GrUnloadFont(opt.txo_font);
