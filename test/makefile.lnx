@@ -51,6 +51,7 @@ PROGS=	arctest     \
 	curstest    \
 	fontdemo    \
 	fontdemo2   \
+	fontdemo3   \
 	fonttest    \
 	imgtest     \
 	jpgtest     \
