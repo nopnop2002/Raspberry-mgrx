@@ -43,20 +43,31 @@ fbset -i -fb &lt;device of framebuffer&gt;
 export FRAMEBUFFER=&lt;device of framebuffer&gt;   
 If you have 320x240 TFT module like ILI9341, it'll be as follows.   
 
+<Case of RPi>   
 export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
 export FRAMEBUFFER=/dev/fb1   
 cd $HOME/mgrx_rpi/test   
 ./demomgrx   
 
+<Case of OPi>   
+export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
+export FRAMEBUFFER=/dev/fb8   
+cd $HOME/mgrx_rpi/test   
+./demomgrx   
+
+
 ---
 
 When the item is chosen by an arrow key and ENTER is pushed, demonstration starts.   
+demomgrx is a simple launcher program.   
+It's possible to start each demonstration program directly by a command line.   
 
 ![main1](https://cloud.githubusercontent.com/assets/6020549/25655340/834fa7b0-302f-11e7-943b-1d80b255a9d3.png)
 
 ![main2](https://cloud.githubusercontent.com/assets/6020549/25655348/8861486c-302f-11e7-87bd-e32a518ed616.png)
 
 ![main3](https://cloud.githubusercontent.com/assets/6020549/25655353/8bb1c604-302f-11e7-8177-bc02b774a55d.png)
+
 
 ---
 
