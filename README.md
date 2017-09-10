@@ -43,13 +43,13 @@ fbset -i -fb &lt;device of framebuffer&gt;
 export FRAMEBUFFER=&lt;device of framebuffer&gt;   
 If you have 320x240 TFT module like ILI9341, it'll be as follows.   
 
-&ltCase of RPi&gt   
+&lt;Case of RPi&gt;   
 export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
 export FRAMEBUFFER=/dev/fb1   
 cd $HOME/mgrx_rpi/test   
 ./demomgrx   
 
-&ltCase of OPi&gt   
+&lt;Case of OPi&gt;   
 export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
 export FRAMEBUFFER=/dev/fb8   
 cd $HOME/mgrx_rpi/test   
