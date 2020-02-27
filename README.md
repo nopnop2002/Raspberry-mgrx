@@ -1,4 +1,4 @@
-# mgrx_rpi
+# Raspberry-mgrx
 2D graphics library for FrameBuffer
 
 MGRX is a 2D graphics library derived from the GRX library.   
