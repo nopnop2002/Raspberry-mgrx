@@ -14,25 +14,20 @@ OrangePi PC + ILI9325 Parallel TFT.
 
 ---
 
-# Requirements
-
-sudo apt-get install libjpeg-dev libpng-dev
-
----
-
 # Install
-
+```
+sudo apt-get install libjpeg-dev libpng-dev
 git clone https://github.com/nopnop2002/Raspberry-mgrx
 cd Raspberry-mgrx
 make -f makefile.lnx libs
 sudo make -f makefile.lnx install
 make -f makefile.lnx test
+```
 
 ---
 
 # Demonstration
-
-export MGRXDRV="linuxfb gw &lt;width&gt; gh &lt;height&gt; nc &lt;colors&gt;"   
+export MGRXDRV="linuxfb gw &lt;width&gt; gh &lt;height&gt; nc &lt;colors&gt;"
 &lt;width&gt; is width of FrameBuffer.   
 &lt;height&gt; is height of FrameBuffer.   
 Values for nc can be 2, 16, 256, 64K or 16M.   
