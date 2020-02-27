@@ -27,27 +27,32 @@ make -f makefile.lnx test
 ---
 
 # Demonstration
-export MGRXDRV="linuxfb gw &lt;width&gt; gh &lt;height&gt; nc &lt;colors&gt;"
+$ export MGRXDRV="linuxfb gw &lt;width&gt; gh &lt;height&gt; nc &lt;colors&gt;"
 &lt;width&gt; is width of FrameBuffer.   
 &lt;height&gt; is height of FrameBuffer.   
 Values for nc can be 2, 16, 256, 64K or 16M.   
-You can get these by the following command.   
-fbset -i -fb &lt;device of framebuffer&gt;   
 
-export FRAMEBUFFER=&lt;device of framebuffer&gt;   
+You can get these by the following command.   
+$ fbset -i -fb &lt;device of framebuffer&gt;   
+
+$ export FRAMEBUFFER=&lt;device of framebuffer&gt;   
 If you have 320x240 TFT module like ILI9341, it'll be as follows.   
 
-&lt;Case of RPi&gt;   
-export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
-export FRAMEBUFFER=/dev/fb1   
-cd $HOME/mgrx_rpi/test   
-./demomgrx   
+- Case of RPi
+```
+$ export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
+$ export FRAMEBUFFER=/dev/fb1   
+$ cd $HOME/mgrx_rpi/test   
+$ ./demomgrx   
+```
 
-&lt;Case of OPi&gt;   
-export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
-export FRAMEBUFFER=/dev/fb8   
-cd $HOME/mgrx_rpi/test   
-./demomgrx   
+- Case of OPi
+```
+$ export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
+$ export FRAMEBUFFER=/dev/fb8   
+$ cd $HOME/mgrx_rpi/test   
+$ ./demomgrx   
+```
 
 ---
 
