@@ -14,24 +14,23 @@ OrangePi PC + ILI9325 Parallel TFT.
 
 ---
 
-Requirements   
+# Requirements
 
 sudo apt-get install libjpeg-dev libpng-dev
 
 ---
 
+# Install
 
-Install   
-
-git clone https://github.com/nopnop2002/mgrx_rpi   
-cd $HOME/mgrx_rpi/   
-make -f makefile.lnx libs   
-sudo make -f makefile.lnx install   
-make -f makefile.lnx test   
+git clone https://github.com/nopnop2002/Raspberry-mgrx
+cd Raspberry-mgrx
+make -f makefile.lnx libs
+sudo make -f makefile.lnx install
+make -f makefile.lnx test
 
 ---
 
-Demonstration   
+# Demonstration
 
 export MGRXDRV="linuxfb gw &lt;width&gt; gh &lt;height&gt; nc &lt;colors&gt;"   
 &lt;width&gt; is width of FrameBuffer.   
@@ -57,6 +56,8 @@ cd $HOME/mgrx_rpi/test
 
 ---
 
+# Operation
+
 When the item is chosen by an arrow key and ENTER is pushed, demonstration starts.   
 demomgrx is a simple launcher program.   
 It's possible to start each demonstration program directly by a command line.   
@@ -70,6 +71,6 @@ It's possible to start each demonstration program directly by a command line.
 
 ---
 
-Programmer's manual   
+# Programmer's manual
 
 <http://www.fgrim.com/mgrx/mgrx10pm.htm>   
