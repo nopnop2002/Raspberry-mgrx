@@ -27,16 +27,18 @@ make -f makefile.lnx test
 ---
 
 # Demonstration
-$ export MGRXDRV="linuxfb gw &lt;width&gt; gh &lt;height&gt; nc &lt;colors&gt;"
-&lt;width&gt; is width of FrameBuffer.   
-&lt;height&gt; is height of FrameBuffer.   
-Values for nc can be 2, 16, 256, 64K or 16M.   
+```
+$ export MGRXDRV="linuxfb gw <width> gh <height> nc <colors>"
+<width> is width of FrameBuffer.
+<height> is height of FrameBuffer.
+Values for nc can be 2, 16, 256, 64K or 16M.
 
-You can get these by the following command.   
-$ fbset -i -fb &lt;device of framebuffer&gt;   
+You can get these by the following command.
+$ fbset -i -fb <device of framebuffer>
 
-$ export FRAMEBUFFER=&lt;device of framebuffer&gt;   
-If you have 320x240 TFT module like ILI9341, it'll be as follows.   
+$ export FRAMEBUFFER=<device of framebuffer>
+If you have 320x240 TFT module like ILI9341, it'll be as follows.
+```
 
 - Case of RPi
 ```
