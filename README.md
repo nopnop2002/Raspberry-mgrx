@@ -64,9 +64,9 @@ When the item is chosen by an arrow key and ENTER is pushed, demonstration start
 demomgrx is a simple launcher program.   
 It's possible to start each demonstration program directly by a command line.   
 
-![main1](https://user-images.githubusercontent.com/6020549/234507732-61dbce20-df70-40a7-be90-175ff88a314d.png)
-![main2](https://user-images.githubusercontent.com/6020549/234507739-ec4e9d01-2f4c-4e3a-abed-bcc233aff741.png)
-![main3](https://user-images.githubusercontent.com/6020549/234507741-9d380983-1992-4cd4-8aa5-0d94843d781b.png)
+![main1](https://user-images.githubusercontent.com/6020549/234507732-61dbce20-df70-40a7-be90-175ff88a314d.png)   
+![main2](https://user-images.githubusercontent.com/6020549/234507739-ec4e9d01-2f4c-4e3a-abed-bcc233aff741.png)   
+![main3](https://user-images.githubusercontent.com/6020549/234507741-9d380983-1992-4cd4-8aa5-0d94843d781b.png)   
 
 ---
 
