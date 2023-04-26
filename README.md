@@ -37,10 +37,10 @@ You can get these by the following command.
 $ fbset -i -fb <device of framebuffer>
 
 $ export FRAMEBUFFER=<device of framebuffer>
-If you have 320x240 TFT module like ILI9341, it'll be as follows.
 ```
 
-- Case of RPi
+If you have 320x240 TFT module like ILI9341, it'll be as follows.
+- for Raspberry Pi   
 ```
 $ export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
 $ export FRAMEBUFFER=/dev/fb1   
@@ -48,7 +48,7 @@ $ cd $HOME/mgrx_rpi/test
 $ ./demomgrx   
 ```
 
-- Case of OPi
+- for Orange Pi PC
 ```
 $ export MGRXDRV="linuxfb gw 320 gh 240 nc 64k"   
 $ export FRAMEBUFFER=/dev/fb8   
